@@ -2991,6 +2991,12 @@ However, because send and receive keys are derived from independent
 traffic secrets, retaining the receive traffic secret does not threaten
 the forward secrecy of data sent before the sender changed keys.
 
+An implementation MUST NOT send an "update_response" KeyUpdate unless
+it has received at least one "update_request" KeyUpdate. After sending
+an "update_response" KeyUpdate, an implementation MUST NOT send
+another "update_response" KeyUpdate until it receives at least one
+subsequent "update_request" KeyUpdate.
+
 If implementations independently send their own KeyUpdates with
 request_update set to "update_request", and they cross in flight, then each side
 will also send a response, with the result that each side increments
