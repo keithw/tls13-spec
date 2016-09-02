@@ -2979,8 +2979,8 @@ next generation of keys, computed as described in
 {{updating-traffic-keys}}. Upon receiving a KeyUpdate, the receiver
 MUST update its receiving keys.
 
-If the requestUpdate field is set to "update_requested" then the receiver MUST
-send a KeyUpdate of its own with requestUpdate set to "update_not_requested" prior
+If the request_update field is set to "update_requested" then the receiver MUST
+send a KeyUpdate of its own with request_update set to "update_not_requested" prior
 to sending its next application data record. This mechanism allows either side to force an update to the
 entire connection, but causes an implementation which
 receives multiple KeyUpdates while it is silent to respond with
@@ -2992,7 +2992,7 @@ traffic secrets, retaining the receive traffic secret does not threaten
 the forward secrecy of data sent before the sender changed keys.
 
 If implementations independently send their own KeyUpdates with
-requestUpdate set to "update_requested", and they cross in flight, then each side
+request_update set to "update_requested", and they cross in flight, then each side
 will also send a response, with the result that each side increments
 by two generations.
 
